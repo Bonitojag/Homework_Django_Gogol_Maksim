@@ -1,8 +1,7 @@
 from django.urls import path
-from catalog.apps import CatalogConfig
-
-app_name = CatalogConfig.name
+from . import views
 
 urlpatterns = [
-    path('',)
+    path('', views.home, name='home'),
+    path('contacts/', views.contact, name='contact'),
 ]
