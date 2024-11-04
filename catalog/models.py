@@ -8,7 +8,7 @@ class Category(models.Model):
     description = models.TextField(
         verbose_name="Описание категории",
         help_text="Ведите описание категории",
-        blanc=True,
+        blank=True,
         null=True,
     )
 
@@ -27,12 +27,12 @@ class Product(models.Model):
     description = models.TextField(
         verbose_name="Описание продукта",
         help_text="Введите описание продукта",
-        blanc=True,
+        blank=True,
         null=True,
     )
     image = models.ImageField(
         upload_to="catalog/image",
-        blanc=True,
+        blank=True,
         null=True,
         verbose_name="Изображение",
         help_text="Загрузите изображение",
@@ -41,16 +41,18 @@ class Product(models.Model):
         Category,
         on_delete=models.CASCADE,
         related_name="products",
-        blanc=True,
+        blank=True,
         null=True,
     )
     price = models.DecimalField(max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    manufactured_at = models.DateTimeField(verbose_name='Дата производства продукта',
+                                           help_text='Введите дату производства продукта', blank=True, null=True)
 
     class Meta:
-        verbouse_name = "Продукт"
-        verbouse_name_plural = "Продукты"
+        verbose_name = "Продукт"
+        verbose_name_plural = "Продукты"
         ordering = ["name", "category"]
 
     def __str__(self):
