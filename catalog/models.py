@@ -47,8 +47,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    manufactured_at = models.DateTimeField(verbose_name='Дата производства продукта',
-                                           help_text='Введите дату производства продукта', blank=True, null=True)
+
 
     class Meta:
         verbose_name = "Продукт"
