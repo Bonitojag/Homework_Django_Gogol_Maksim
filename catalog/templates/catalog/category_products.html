@@ -1,0 +1,39 @@
+{% extends 'catalog/base.html' %}
+
+{% load static %}
+{% load image_filter %}
+
+{% block content %}
+<section class="py-5 text-center container">
+    <h1>Продукты в категории: {{ category.name }}</h1>
+    <a href="{% url 'home' %}" class="btn btn-dark mb-4">Назад на главную</a>
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for product in products %}
+                <div class="col">
+                    <div class="card shadow-sm">
+                        {% if product.image %}
+                        <img src="{{ product.image|image_product }}" class="card-img-top" alt="{{ product.name }}">
+                        {% else %}
+                        <img src="{% static 'images/default_image.png' %}" class="card-img-top" alt="Default Image">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">Цена: {{ product.price }}</p>
+                            <p class="card-text">{{ product.description }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{% url 'product_detail' product.pk %}" class="btn btn-sm btn-primary">Просмотр</a>
+                                    <button type="button" class="btn btn-sm btn-success">В корзину</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -133,6 +133,16 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-pagination"
+version = "1.0.7"
+description = "django-pagination"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-pagination-1.0.7.tar.gz", hash = "sha256:44877386b8839250a693b64b036ce44eaca95a15fc8c1c564bedc0308b1f9b8a"},
+]
+
+[[package]]
 name = "executing"
 version = "2.1.0"
 description = "Get the currently executing AST node of a frame, and other information"
@@ -599,4 +609,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "68e0ca6bfe180ffe992dfa034b0f08a2b4c0e217d1e009a48545663fd6aff1b1"
+content-hash = "b6c71d5d59a1763246680651b647e19efbae208635b64affadd5af299825802f"
