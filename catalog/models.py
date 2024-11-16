@@ -2,6 +2,13 @@ from django.db import models
 
 
 class Category(models.Model):
+    """
+    Модель для категории продуктов
+
+    Атрибуты:
+            name: Название категории
+            description: Описание категории
+    """
     name = models.CharField(
         max_length=125, verbose_name="Категория", help_text="Введите название категории"
     )
@@ -21,6 +28,19 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    """
+    Модель продуктов
+
+    Атрибуты:
+            name: Название продукта
+            description: Описание продукта
+            image: Изображени продукта
+            category: Связь с категорией
+            price: Цена
+            created_at: Дата и время создания продукта
+            updated_at Дата и времяпоследнего обновления продукта
+
+    """
     name = models.CharField(
         max_length=125, verbose_name="Продукт", help_text="Введите название продукта"
     )
@@ -58,6 +78,14 @@ class Product(models.Model):
         return self.name
 
 class Contact(models.Model):
+    """
+    Модель контакта с сообщением
+
+    Атрибуты:
+            name: Имя отправившего сообщение
+            phone: Номер телефона отправившего сообщение
+            message: Сообщение
+    """
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=15)
     message = models.TextField()
